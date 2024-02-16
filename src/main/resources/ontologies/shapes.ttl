@@ -1,0 +1,594 @@
+@prefix : <http://www.symbiote-h2020.eu/ontology/shapes#> .
+@prefix qu: <http://purl.oclc.org/NET/ssnx/qu/qu#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix core: <http://www.symbiote-h2020.eu/ontology/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qu-quantity: <http://purl.oclc.org/NET/ssnx/qu/quantity#> .
+
+<http://www.symbiote-h2020.eu/ontology/shapes> rdf:type owl:Ontology ;
+                                            
+                                            rdfs:label "Shapes extention of CIM"@en ;
+                                            
+                                            rdfs:comment "Shapes extention of CIM."@en ;
+                                            
+                                            owl:imports <http://purl.oclc.org/NET/ssnx/qu/qu-rec20> ,
+                                                        <http://www.symbiote-h2020.eu/ontology/core/2.3.0> ;
+                                            
+                                            owl:versionIRI <http://www.symbiote-h2020.eu/ontology/shapes> 
+											;
+											
+											core:hasExposureInfo [ a core:ExposureInfo ;
+												core:includeNamespace "http://www.symbiote-h2020.eu/ontology/core#" ;
+												core:includeNamespace "http://www.symbiote-h2020.eu/ontology/shapes#" ;
+												core:excludeClass core:ExposureInfo ;
+												core:processImportsRecursive "false"^^xsd:boolean
+											 ].
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#AirQualitySensor
+
+:AirQualitySensor rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf core:Sensor .
+				  
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#BodyScale
+
+:BodyScale rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :HealthDevice .
+				 
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#BloodPressureMeter
+
+:BloodPressureMeter rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf core:Sensor .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#BloodPressureSensor
+
+:BloodPressureSensor rdf:type owl:Class ;
+
+                  rdfs:subClassOf core:Sensor .
+				  
+###  http://www.symbiote-h2020.eu/ontology/shapes#BloodGlucoseMeter
+
+:BloodGlucoseMeter rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf core:Sensor .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#Camera3D
+
+:Camera3D rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf core:Sensor .
+				  
+				  
+###  http://www.symbiote-h2020.eu/ontology/shapes#EnergyMonitor
+
+:EnergyMonitor rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf core:Sensor .
+						  			  
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#EnviromentalSensor
+
+:EnviromentalSensor rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf core:Sensor .
+						  
+						  
+###  http://www.symbiote-h2020.eu/ontology/shapes#FitnessTracker	
+
+:FitnessTracker rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf core:Sensor .
+				  
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#GaitMeasureDevice
+
+:GaitMeasureDevice rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf core:Sensor .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#HealthDevice
+
+:HealthDevice rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf core:Device .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#HeartRateMonitor
+
+:HeartRateMonitor rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf core:Sensor .
+
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#HumiditySensor
+
+:HumiditySensor rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf core:Sensor .
+					  
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#LampMonitor
+
+:LampMonitor rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf core:Sensor .					  
+		
+		
+###  http://www.symbiote-h2020.eu/ontology/shapes#MotionSensor	
+
+:MotionSensor rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf core:Sensor .
+				  			 
+			 
+###  http://www.symbiote-h2020.eu/ontology/shapes#MovementSensor	
+		 
+:MovementSensor rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf core:Sensor .		
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#Omron_M7	
+		 
+:Omron_M7 rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf core:Sensor .		
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#Omron_oxi	
+		 
+:Omron_oxi rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf core:Sensor .						  
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#Omron_Viva	
+		 
+:Omron_Viva rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf core:Sensor .	
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#OxymeterSensor
+
+:OxymeterSensor rdf:type owl:Class ;
+
+                  rdfs:subClassOf core:Sensor .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#SmartBand
+
+:SmartBand rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf core:Sensor .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#SmartBand
+
+:SmartBand rdf:type owl:Class ;
+
+                  rdfs:subClassOf core:Sensor .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#ScaleSensor
+
+:ScaleSensor rdf:type owl:Class ;
+
+                  rdfs:subClassOf core:Sensor .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#TemperatureSensor
+
+:TemperatureSensor rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf core:Sensor .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#WeightScale
+
+:WeightScale rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf core:Sensor .	
+				  
+				  
+###  http://www.symbiote-h2020.eu/ontology/shapes#WeatherStation
+
+:WeatherStation rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf core:Sensor .	
+				  				  
+				  
+				  
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#activityState
+
+:activityState rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "activityState"^^xsd:string .
+					
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#airHumidity
+
+:airHumidity rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "airHumidity"^^xsd:string .
+					
+					
+###  http://www.symbiote-h2020.eu/ontology/shapes#airTemperature
+
+:airTemperature rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "airTemperature"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#averageWindSpeed
+
+:averageWindSpeed rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "averageWindSpeed"^^xsd:string .
+					
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#BasalMetabolicRate
+
+:BasalMetabolicRate rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "BasalMetabolicRate"^^xsd:string .
+			   
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#batteryVoltage
+
+:batteryVoltage rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "batteryVoltage"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#bloodGlucose
+
+:bloodGlucose rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "bloodGlucose"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#bloodPressure
+
+:bloodPressure rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "bloodPressure"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#bodyFatPercentage
+
+:bodyFatPercentage rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "bodyFatPercentage"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#bodyMassIndex
+
+:bodyMassIndex rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "bodyMassIndex"^^xsd:string .
+	
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#bodySkeletalMuscle
+
+:bodySkeletalMuscle rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "bodySkeletalMuscle"^^xsd:string .
+			   
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#bodyWeight
+
+:bodyWeight rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "bodyWeight"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#bodyVisceralFat
+
+:bodyVisceralFat rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "bodyVisceralFat"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#body_fat_percentage
+
+:body_fat_percentage rdf:type core:Property ,
+                        owl:NamedIndividual ;
+
+               core:name "body_fat_percentage"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#body_mass_index
+
+:body_mass_index rdf:type core:Property ,
+                        owl:NamedIndividual ;
+
+               core:name "body_mass_index"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#body_skeletal_muscle
+
+:body_skeletal_muscle rdf:type core:Property ,
+                        owl:NamedIndividual ;
+
+               core:name "body_skeletal_muscle"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#body_weight
+
+:body_weight rdf:type core:Property ,
+                        owl:NamedIndividual ;
+
+               core:name "body_weight"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#body_visceral_fat
+
+:body_visceral_fat rdf:type core:Property ,
+                        owl:NamedIndividual ;
+
+               core:name "body_visceral_fat"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#body_metabolic_rate
+
+:body_metabolic_rate rdf:type core:Property ,
+                        owl:NamedIndividual ;
+
+               core:name "body_metabolic_rate"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#cadence
+
+:cadence rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "cadence"^^xsd:string .
+			   
+###  http://www.symbiote-h2020.eu/ontology/shapes#CO2eq
+
+:CO2eq rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "CO2eq"^^xsd:string .
+			   			   
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#diastolicBloodPressure
+
+:diastolicBloodPressure rdf:type core:Property ,
+                                       owl:NamedIndividual ;
+                              
+                              core:name "diastolicBloodPressure"^^xsd:string .
+							  
+###  http://www.symbiote-h2020.eu/ontology/shapes#diastolic_blood_pressure
+
+:diastolic_blood_pressure rdf:type core:Property ,
+                                       owl:NamedIndividual ;
+
+                              core:name "diastolic_blood_pressure"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#distance
+
+:distance rdf:type core:Property ,
+                              owl:NamedIndividual ;
+                              
+                              core:name "distance"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#endPosition
+
+:endPosition rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                             owl:onProperty core:name ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:string
+                                           ] .
+							
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#Falls
+
+:Falls rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "Falls"^^xsd:string .
+			   
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#heartRate
+
+:heartRate rdf:type core:Property ,
+                          owl:NamedIndividual ;
+                 
+                 core:name "heartRate"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#heart_rate
+
+:heart_rate rdf:type core:Property ,
+                          owl:NamedIndividual ;
+
+                 core:name "heart_rate"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#humidity
+
+:humidity rdf:type core:Property ,
+                          owl:NamedIndividual ;
+                 
+                 core:name "humidity"^^xsd:string .
+				 
+			   
+###  http://www.symbiote-h2020.eu/ontology/shapes#gustWindSpeed
+
+:gustWindSpeed rdf:type core:Property ,
+                          owl:NamedIndividual ;
+                 
+                 core:name "gustWindSpeed"^^xsd:string .
+				 
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#OnOffState
+
+:OnOffState rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "OnOffState"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#oxygen_saturation
+
+:oxygen_saturation rdf:type core:Property ,
+                        owl:NamedIndividual ;
+
+               core:name "oxygen_saturation"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#Performance
+
+:Performance rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "Performance"^^xsd:string .
+			   
+			   
+###  http://www.symbiote-h2020.eu/ontology/shapes#repetitions
+
+:repetitions rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "repetitions"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#rainRate
+
+:rainRate rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "rainRate"^^xsd:string .
+			   
+###  http://www.symbiote-h2020.eu/ontology/shapes#routines
+
+:routines rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "routines"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#SGID
+
+:SGID rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "SGID"^^xsd:string .
+			   
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#solarRadiation
+
+:solarRadiation rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "solarRadiation"^^xsd:string .
+			   
+			   
+###  http://www.symbiote-h2020.eu/ontology/shapes#startPosition
+
+:startPosition rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                             owl:onProperty core:name ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:string
+                                           ] .
+									
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#steps
+
+:steps rdf:type core:Property ,
+                        owl:NamedIndividual ;
+               
+               core:name "steps"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#steps_count
+
+:steps_count rdf:type core:Property ,
+                        owl:NamedIndividual ;
+
+               core:name "steps_count"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#systolicBloodPressure
+
+:systolic_blood_pressure rdf:type core:Property ,
+                                      owl:NamedIndividual ;
+                             
+                             core:name "systolic_blood_pressure"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#systolicBloodPressure
+
+:systolicBloodPressure rdf:type core:Property ,
+                                      owl:NamedIndividual ;
+
+                             core:name "systolicBloodPressure"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#temperature
+
+:temperature rdf:type core:Property ,
+                                      owl:NamedIndividual ;
+                             
+                             core:name "temperature"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#todaysRain
+
+:todaysRain rdf:type core:Property ,
+                                      owl:NamedIndividual ;
+                             
+                             core:name "todaysRain"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#TVOC
+
+:TVOC rdf:type core:Property ,
+                              owl:NamedIndividual ;
+                             
+                             core:name "TVOC"^^xsd:string .
+							 
+
+###  http://www.symbiote-h2020.eu/ontology/shapes#windDirection
+
+:windDirection rdf:type core:Property ,
+                              owl:NamedIndividual ;
+                             
+                             core:name "windDirection"^^xsd:string .
+

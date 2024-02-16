@@ -1,0 +1,445 @@
+@prefix : <http://www.symbiote-h2020.eu/ontology/bim/smartcity#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix qu: <http://purl.oclc.org/NET/ssnx/qu/qu#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix core: <http://www.symbiote-h2020.eu/ontology/core#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix saref4city: <https://w3id.org/saref4city#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qu-quantity: <http://purl.oclc.org/NET/ssnx/qu/quantity#> .
+
+<http://www.symbiote-h2020.eu/ontology/bim/smartcity> rdf:type owl:Ontology ;
+                                            
+                                            rdfs:label "symbIoTe's extension to the Smart City domain"@en ;
+                                            
+                                            owl:versionInfo "v1.0.0 2022/07/15 12:00:00"^^xsd:string ;
+                                            
+                                            rdfs:comment "Smart City of symbIoTe."@en ;
+                                            
+                                            owl:imports  geo:,
+													<http://www.w3.org/2006/time> , 
+													<http://purl.oclc.org/NET/ssnx/qu/qu-rec20> ,
+                                                    <http://www.symbiote-h2020.eu/ontology/core/2.3.0>,
+													 <https://w3id.org/saref#> ,
+													<https://w3id.org/def/saref4city#>;
+                                            
+											core:hasExposureInfo [ a core:ExposureInfo ;
+												core:includeNamespace "http://www.symbiote-h2020.eu/ontology/core#" ;
+												core:excludeClass core:ExposureInfo ;
+												core:processImportsRecursive "false"^^xsd:boolean
+											 ].
+
+### Mappings between saref ontologies and symbiote cim ontologies.
+
+###  https://w3id.org/saref#Device
+saref:Device owl:equivalentClass core:Device .
+
+###  https://w3id.org/saref#Sensor
+saref:Sensor owl:equivalentClass core:Sensor .
+
+###  https://w3id.org/saref#Actuator
+saref:Actuator owl:equivalentClass core:Actuator .
+
+###  https://w3id.org/saref#Property
+saref:Property owl:equivalentClass core:Property .
+
+###  https://w3id.org/saref#UnitOfMeasure
+saref:Measurement owl:equivalentClass core:ObservationValue .
+
+###  https://w3id.org/saref#UnitOfMeasure
+saref:UnitOfMeasure owl:equivalentClass core:UnitOfMeasurement .
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#hasParkingSpots
+
+:hasParkingSpots rdf:type owl:ObjectProperty ;
+
+                  rdfs:range :ParkingSpot  ;
+
+                  rdfs:domain :refParkingSite .
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#name
+
+:name rdf:type owl:DatatypeProperty ,
+               owl:FunctionalProperty ;
+      
+      rdfs:range xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#id
+
+:id rdf:type owl:DatatypeProperty ,
+               owl:FunctionalProperty ;
+
+      rdfs:range xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#status
+
+:status rdf:type owl:DatatypeProperty ,
+               owl:FunctionalProperty ;
+
+      rdfs:range xsd:string .
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#AirQualitySensor
+
+:AirQualitySensor rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf core:Sensor .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#HumiditySensor
+
+:HumiditySensor rdf:type owl:Class ;
+
+                      rdfs:subClassOf core:Sensor .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#LightSensor
+:LightSensor rdf:type owl:Class ;
+
+                      rdfs:subClassOf core:Sensor;
+					  rdfs:subClassOf core:Actuator,
+								[ rdf:type owl:Restriction ;
+                            owl:onProperty core:status ;
+                            owl:onDataRange xsd:string ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+								],
+								[ rdf:type owl:Restriction ;
+                            owl:onProperty core:powerState ;
+                            owl:onDataRange xsd:string ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+								] .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#LightPoint
+:LightPoint rdf:type owl:Class ;
+            rdfs:subClassOf core:WKTLocation	.
+				  
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#TemperatureSensor
+
+:TemperatureSensor rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf core:Sensor .
+	
+### Smart city
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#paid
+:paid rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "paid"^^xsd:string .
+
+:state rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "state"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#Isprotected
+:Isprotected rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "Isprotected"^^xsd:string .
+
+## smart weather
+:windSpeed rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "windSpeed"^^xsd:string .
+
+:co rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "co"^^xsd:string .
+
+:co2 rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "co2"^^xsd:string .
+
+:dry rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "dry"^^xsd:string .
+
+:rainPercentage rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "rainPercentage"^^xsd:string .
+
+:pm2_5 rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "pm2_5"^^xsd:string .
+
+:atmosphericPressure rdf:type core:Property ,
+                              owl:NamedIndividual  ;
+					core:name "atmosphericPressure"^^xsd:string .
+				  
+########################################################
+### City definition.
+########################################################
+
+###  https://w3id.org/def/saref4city#City
+:City a owl:Class ;
+	rdfs:comment "A city is a large human settlement(https://en.wikipedia.org/wiki/City)"@en ;
+	rdfs:label "City"@en;
+        rdfs:subClassOf saref4city:AdministrativeArea;
+        rdfs:subClassOf core:Location,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty core:name ;
+                            owl:onDataRange xsd:string ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                          ],
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty core:description ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange rdf:langString
+                          ] .
+
+
+###################################################
+### smart parking
+##################################################
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#refParkingSite
+:refParkingSite rdf:type owl:Class ;
+					   rdfs:subClassOf core:Location,
+                       rdfs:subClassOf core:WGS84Location ,
+									   [ rdf:type owl:Restriction ;
+                                         owl:onProperty core:name ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:string
+                                       ],
+									   [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasParkingSpots ;
+                                         owl:onClass :ParkingSpot ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                       ]  .
+
+### http://www.symbiote-h2020.eu/ontology/bim/smartcity#ParkingSpot
+:ParkingSpot rdf:type owl:class ;
+		 rdfs:subClassOf :refParkingSite ,
+						[ rdf:type owl:Restriction ;
+                            owl:onProperty :id ;
+                            owl:onDataRange xsd:string ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                          ],
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :status ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange rdf:langString
+                          ],
+						  [ rdf:type owl:Restriction ;
+                            owl:onProperty :category ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange rdf:langString
+                          ].
+
+#################################################################
+#
+#    Individuals: are  for defining individuals of classes, e.g. Property
+#
+#################################################################
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#onOffState
+:onOffState rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "onOffState"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#category
+:category rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "category"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#powerState
+:powerState rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "powerState"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#lanternHeight
+:lanternHeight rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "lanternHeight"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#illuminanceLevel
+:illuminanceLevel rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "illuminanceLevel"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#powerConsumption
+:powerConsumption rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "powerConsumption"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#current
+:current rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "current"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#powerRating
+:powerRating rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "powerRating"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#powerFactor
+:powerFactor rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "powerFactor"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#voltage
+:voltage rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "voltage"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#width
+:width rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "width"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#length
+:length rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "length"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#refParkingGroup
+:refParkingGroup  rdf:type core:WKTLocation  .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#refStreetlightControlCabinet
+:refStreetlightControlCabinet  rdf:type core:WKTLocation  .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#refStreetlightGroup
+:refStreetlightGroup  rdf:type core:WKTLocation  .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#locationCategory
+:locationCategory  rdf:type core:WKTLocation  .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#temperature
+:temperature rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "temperature"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#feelsLikesTemperature
+:feelsLikesTemperature rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "feelsLikesTemperature"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#relativeHumidity
+:relativeHumidity rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "relativeHumidity"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#precipitation
+:precipitation rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "precipitation"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#solarRadiation
+:solarRadiation rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "solarRadiation"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#pressureTendency
+:pressureTendency rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "pressureTendency"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#dewPoint
+:dewPoint rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "dewPoint"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#streamGauge
+:streamGauge rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "streamGauge"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#snowHeight
+:snowHeight rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "snowHeight"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#uVIndexMax
+:uVIndexMax rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "uVIndexMax"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#aqiMajorPollutant
+:aqiMajorPollutant rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "aqiMajorPollutant"^^xsd:string .
+
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#aqiMajorPollutantForecast
+:aqiMajorPollutantForecast rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "aqiMajorPollutantForecast"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#airTemperatureForecast
+:airTemperatureForecast rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "airTemperatureForecast"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#precipitationForecast
+:precipitationForecast rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "precipitationForecast"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#airQualityIndex
+:airQualityIndex rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "airQualityIndex"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#relativeHumidityForecast
+:relativeHumidityForecast rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "relativeHumidityForecast"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#illuminance
+:illuminance rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "illuminance"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#airQualityIndexForecast
+:airQualityIndexForecast rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "airQualityIndexForecast"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#airTemperatureTSA
+:airTemperatureTSA rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "airTemperatureTSA"^^xsd:string .
+
+ ###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#dayMaximum
+:dayMaximum rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "dayMaximum"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#dayMinimum
+:dayMinimum rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "dayMinimum"^^xsd:string .
+
+###  http://www.symbiote-h2020.eu/ontology/bim/smartcity#uVIndexMax
+:uVIndexMax rdf:type core:Property ,
+                           owl:NamedIndividual  ;
+					core:name "uVIndexMax"^^xsd:string .
+
+
+
+
+
+
+
